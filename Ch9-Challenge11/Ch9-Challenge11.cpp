@@ -5,13 +5,14 @@
 #include <algorithm>
 using namespace std;
 
-int* growArray(const int*, int);
+int* growArray(const int *, int);
 void displayArray(const int[], int);
 
 int main()
 {
     const int SIZE1 = 5;
     const int SIZE2 = (SIZE1*2);
+    int zero = 0;
 
     // First Array
     int array1[SIZE1] = { 18, 15, 47, 25, 83 };
@@ -34,11 +35,11 @@ int main()
 
 }
 
-int* growArray(const int* arr, int size)
+int* growArray(const int * arr, int size)
 {
     int* newArray = nullptr;
 
-    if (size = 0)
+    if (size <= 0)
 
         return nullptr;
 
