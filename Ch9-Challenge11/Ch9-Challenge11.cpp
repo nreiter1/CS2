@@ -32,6 +32,10 @@ int main()
     // Display second array.
     displayArray(array1, SIZE2);
 
+    
+    delete dup1;
+    delete dup2;
+
 
 }
 
