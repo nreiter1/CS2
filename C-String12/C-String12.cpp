@@ -18,7 +18,7 @@ int main()
 	cout << "\n\n";
 	//Prompts user to enter a password
 	cout << "Enter a password that meets these requirements:\n";
-	cout << "Minimun Character Length: 6\n";
+	cout << "Minimun Character Length: 8\n";
 	cout << "Maximum Character Length: 24\n";
 	cout << "At least one upper and lower case letter\n";
 	cout << "At least one digit\n: ";
@@ -31,7 +31,7 @@ int main()
 void checkPassword(char* ptr)
 {
 	//Check length
-	if (strlen(ptr) < 6)
+	if (strlen(ptr) < 8)
 	{
 		cout << "Password MUST be at least 6 characters!\n";
 		return;
