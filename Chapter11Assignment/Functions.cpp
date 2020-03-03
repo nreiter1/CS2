@@ -12,10 +12,22 @@ void displayWeather(Weather& weather)
 
 void displayAllWeatherData(vector<Weather> weatherList)
 {
+	int maxHigh;
+	int lowLow;
 	for (Weather weather : weatherList)
 	{
 		displayWeather(weather);
 	}
+	for (Weather weather : weatherList)
+	{
+		if (weather.monthHigh > weather.monthHigh)
+			maxHigh = weather.monthHigh;
+		if (weather.monthLow < weather.monthLow)
+			lowLow = weather.monthLow;
+	}
+
+	cout << "Highest Recorded Temperature: " << maxHigh << "*F" << endl;
+	cout << "Lowest Recorded Temperature: " << lowLow << "*F" << endl;
 }
 
 float calculateAverages(vector<Weather> weatherList)
