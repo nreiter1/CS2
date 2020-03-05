@@ -1,54 +1,55 @@
-// CS2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-// SDK 10.0
-//
-
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <vector>
 #include "DisplayMenu.h"
-#include "GlobalConstants.h"
-
+using namespace std;
 
 int main()
 {
-	int option = 0;
-	
+	//Working program to enter student and course data
 
-	do
+	//Create a vector of Student structures using the struct as a type
+	vector<Weather> weatherList;
+
+	cout << "***** Enter Average Montly Temperature Data *****" << endl;
+	cout << "#################################################" << endl;
+	bool moreWeather = true;
+	while (moreWeather == true)
 	{
-		option = displaymenu(); //Display the menu and get user selection.
-		int x;
-		switch (option)
+		Weather tmpWeather;
+		cout << "Which month do you want to enter data in?: ";
+		cin >> tmpWeather.month;
+		cout << "Enter average month high in fahrenheit: ";
+		cin >> tmpWeather.monthHigh;
+		cout << "Enter average month low in fahrenheit: ";
+		cin >> tmpWeather.monthLow;
+
+
+		char response;
+
+
+		cout << "\nYou entered the following temperature information" << endl;
+		displayWeather(tmpWeather);
+		cout << endl << "Do you want to save this information? (y or n):";
+		cin >> response;
+		if (response == 'y')
 		{
-		case 1:
-
-			break;
-		case 2:
-			int const ecase = 1;
-			do
-			{
-				int exitoption;
-				cout << "Are you sure you want to exit? 1: Yes 2: No\n:";
-				cin >> exitoption;
-				if (exitoption == 1)
-				{
-					cout << "Exiting!";
-					return 0;
-				}
-				else if (exitoption == 2)
-				{
-					break;
-				}
-				else if (exitoption >= 3)
-				{
-					cout << "Invalid Option.\nPlease select a valid option!";
-				}
-			} while (ecase == 1);
+			weatherList.push_back(tmpWeather);		//add temperature data to vector
 		}
-	} while (option > 0 && option < 3);
-}
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+		cout << "Would you like to enter temperatures for another month? (y or n): ";
+		cin >> response;
+		if (response == 'y')
+			moreWeather = true;
+		else
+			moreWeather = false;
+	}
+
+	calculateAverages(weatherList);
+	//display all weather data in weatherList
+	displayAllWeatherData(weatherList);
+	Average averageList;
+	displayWeatherAverage(averageList);
+
+}
 
