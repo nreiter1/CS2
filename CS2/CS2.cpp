@@ -6,8 +6,10 @@ using namespace std;
 
 int main()
 {
-	//Working program to enter student and course data
+	//Working program to enter weather information
 
+	
+	
 	//Create a vector of Student structures using the struct as a type
 	vector<Weather> weatherList;
 
