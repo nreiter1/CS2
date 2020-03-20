@@ -1,57 +1,80 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <vector>
 #include "DisplayMenu.h"
 using namespace std;
 
 int main()
 {
-	//Working program to enter weather information
+	int option = 0;
+	vector<Weather>* weatherData = new vector<Weather>();
 
-	
-	
-	//Create a vector of Student structures using the struct as a type
-	vector<Weather> weatherList;
-
-	cout << "***** Enter Average Montly Temperature Data *****" << endl;
-	cout << "#################################################" << endl;
-	bool moreWeather = true;
-	while (moreWeather == true)
+	do
 	{
-		Weather tmpWeather;
-		cout << "Which month do you want to enter data in?: ";
-		cin >> tmpWeather.month;
-		cout << "Enter average month high in fahrenheit: ";
-		cin >> tmpWeather.monthHigh;
-		cout << "Enter average month low in fahrenheit: ";
-		cin >> tmpWeather.monthLow;
-
-
-		char response;
-
-
-		cout << "\nYou entered the following temperature information" << endl;
-		displayWeather(tmpWeather);
-		cout << endl << "Do you want to save this information? (y or n):";
-		cin >> response;
-		if (response == 'y')
+		option = displaymenu(); //Display the menu and get user selection.
+		int x;
+		switch (option)
 		{
-			weatherList.push_back(tmpWeather);		//add temperature data to vector
+		case 1: //Initialize Application
+			break;
+		case 2: //Load Data
+			readWeatherData(weatherData);
+			break;
+		case 3: //Enter Weather Data
+			getWeatherData(weatherData);
+			break;
+		case 4:	//Enter weather data for 1 month
+			break;
+		case 5: //Display One Month
+			displayOneMonth(weatherData);
+			break;
+		case 6:	//Display One Year
+			displayOneYear(weatherData);
+			break;
+		case 7:	//Display All Data
+			displayAllWeatherData(weatherData);
+			break;
+		case 8:	//Sort Data
+			break;
+		case 9:	//Save Data
+			writeWeatherData(weatherData);
+			break;
+		case 14:	//Application Status
+			totalWeatherObjects(weatherData);
+			break;
+		case 15: //Display Summary Data
+			findHigh(weatherData);
+			findLow(weatherData);
+			avgHigh(weatherData);
+			avgLow(weatherData);
+			break;
+		case 20: //Exit
+			int const ecase = 1;
+			do
+			{
+				int exitoption;
+				cout << "Are you sure you want to exit? 1: Yes 2: No\n:";
+				cin >> exitoption;
+				if (exitoption == 1)
+				{
+					cout << "Exiting!";
+					return 0;
+				}
+				else if (exitoption == 2)
+				{
+					break;
+				}
+				else if (exitoption >= 3)
+				{
+					cout << "Invalid Option.\nPlease select a valid option!";
+				}
+			} while (ecase == 1);
 		}
+	} while (option > 0 && option < 21);
 
-		cout << "Would you like to enter temperatures for another month? (y or n): ";
-		cin >> response;
-		if (response == 'y')
-			moreWeather = true;
-		else
-			moreWeather = false;
-	}
 
-	calculateAverages(weatherList);
-	//display all weather data in weatherList
-	displayAllWeatherData(weatherList);
-	Average averageList;
-	displayWeatherAverage(averageList);
+	//Weather testWeather = getSingleMonth(3);
+
 
 }
-

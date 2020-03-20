@@ -1,24 +1,30 @@
 #pragma once
+#include <iostream>
+#include <fstream>
 #include <vector>
+#include <fstream>
 using namespace std;
-
-
-struct Average
-{
-	float averageHigh = 0;
-	float averageLow= 0;
-};
 
 struct Weather
 {
-	string month;
-	int monthHigh;
-	int monthLow;
-	vector<Average> average;
+	char name[15];
+	char year[4];
+	float high;
+	float low;
 };
 
-
-void displayWeatherAverage(Average&);
+int displaymenu();
 void displayWeather(Weather&);
-void displayAllWeatherData(vector<Weather>);
-float calculateAverages(vector<Weather>);
+void displayOneMonth(vector<Weather>*);
+void displayOneYear(vector<Weather>*);
+void displayAllWeatherData(vector<Weather>*);
+float findHigh(vector<Weather>*);
+float findLow(vector<Weather>*);
+float avgHigh(vector<Weather>*);
+float avgLow(vector<Weather>*);
+void getWeatherData(vector<Weather>*);
+void writeWeatherData(vector<Weather>*);
+void readWeatherData(vector<Weather>*);
+void totalWeatherObjects(vector<Weather>*);
+//Weather getSingleMonth(int);
+
