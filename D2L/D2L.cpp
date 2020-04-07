@@ -3,13 +3,13 @@
 
 #include <iostream>
 #include "Car.h";
-#include <string>;
 #include <vector>;
 using namespace std;
 
 int main()
 {
     Car car1;
+    Car car2; //Equaling purposes
     char data;
     char choice;
     char option;
@@ -17,45 +17,78 @@ int main()
 
     do
     {
-        string Make;
-        int Model;
+       /* string Make;
+        int Model;*/
 
-        cout << "Car Make?: ";
-        cin >> Make;
-        car1.setMake(Make);
-        cout << "Year Model?: ";
-        cin >> Model;
-        car1.setModel(Model);
+        //cout << "Enter New Vehicle Information?(y = yes or n = no): ";
+        //cin >> choice;
 
-        cout << "Make: " << car1.setMake << endl;
-        cout << "Year Model: " << car1.setModel << endl;
-        car1.setCarSpeed(0);
+        //if (choice != 'n')
+        //{
+        //    cout << "Year Model?: ";
+        //    cin >> Model;
+        //    car1.setModel(Model);
+        //    cout << "Car Make?: ";
+        //    cin >> Make;
+        //    car1.setMake(Make);
+
+        //    cout << "Make: " << Make << endl;
+        //    cout << "Year Model: " << Model << endl;
+        //    car1.setCarSpeed(0);
+        //}
 
 		do
 		{
-			option = displaymenu(); //Display the menu and get user selection.
+            option = displaymenu(); //Display the menu and get user selection.
 			int x;
 			switch (option)
 			{
 			case 1: //Accelerate
-				break;
+                car1.accelVehicle();
+                break;
 			case 2: //Brake
-				break;
-			case 3: //Save Data
+                car1.brakeVehicle();
+                break;
+            case 3:
+                if (car1 == car2) //Not working for some strange reason
+                    cout << "Both cars are equal to each other." << endl;
+                else
+                    cout << "Both cars are NOT equal to each other." << endl;
+                break;
+            case 4:
+                car2 = car1;
+                cout << "Both cars have been set equal." << endl;
+                break;
+            case 5:
+                cin >> car1;
+                break;
+            case 6:
+                cin >> car2;
+                break;
+            case 7:
+                cout << car1;
+                break;
+            case 8:
+                cout << car2;
+                break;
+			case 10: //Save Data
 				break;
 			}
-		} while (option > 0 && option < 3);
+		} while (option > 0 && option < 10);
 
 
 
 
         cout << "Do you want save this information?: (y: yes / n: no)";
         cin >> choice;
-        if (choice = 'y');
-            cout << "Function Works\n";
+        if (choice = 'y')
+        {
             carData.push_back(car1);
+            carData.push_back(car2);
+        }
 
-        cout << "Do you want to add additional vehicles?: (y: yes / n: no)";
+        cout << "Do you want to add additional data?: (y: yes / n: no): ";
+        cin >> data;
     } while (data = 'y');
 
     
