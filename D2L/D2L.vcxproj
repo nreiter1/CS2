@@ -147,11 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="D2L.cpp" />
-    <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Semi.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Car.h" />
+    <ClInclude Include="Vehicle.h" />
+    <ClInclude Include="Semi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
