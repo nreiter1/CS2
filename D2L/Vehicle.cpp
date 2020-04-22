@@ -25,16 +25,16 @@ ostream& operator << (ostream& strm, const Vehicle& vehicle)
 }
 
 istream& operator >> (istream& strm, Vehicle& vehicle)
-{
+{	
 	cout << "Year?: ";
 	strm >> vehicle._year;
 	cout << "Make?: ";
 	strm >> vehicle._make;
 	cout << "Model?: ";
 	strm >> vehicle._model;
-	cout << "Engine Liter(Ex: 3.3 or 5.3)?: ";
+	cout << "Engine Size/Liter(Ex: 3.3 or 5.3)?: ";
 	strm >> vehicle._engine;
-	cout << "Engine Cylinders?(Ex: 3 or 6): ";
+	cout << "Engine Cylinder(Ex: 4 or 6)?: ";
 	strm >> vehicle._cylinder;
 	cout << "Transmission Speed?(Ex: 3 or 4): ";
 	strm >> vehicle._transmission;
@@ -45,7 +45,39 @@ istream& operator >> (istream& strm, Vehicle& vehicle)
 	cout << "Color? ";
 	strm >> vehicle._color;
 	vehicle._speed = 0;
-	return strm;
+
+	cout << "\n";
+	if (vehicle._year <= 0)
+		cout << "\nYear CANNOT be negative!\n";
+	if (vehicle._engine <= 0)
+		cout << "Engine size CANNOT be negative!\n";
+	if (vehicle._cylinder <= 0)
+		cout << "Engine cylinders CANNOT be negative!\n";
+	if (vehicle._transmission <= 0)
+		cout << "Transmission speed CANNOT be negative!\n";
+
+	if (vehicle._year <= 0)
+	{
+		string excepYear = "\nData Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepYear;
+	}
+	if (vehicle._engine <= 0)
+	{
+		string excepEngine = "\nData Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepEngine;
+	}
+	if (vehicle._cylinder <= 0)
+	{
+		string excepCylinder = "\nData Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepCylinder;
+	}	
+	if (vehicle._transmission <= 0)
+	{
+		string excepTransmission = "\nData Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepTransmission;
+	}
+	else
+		return strm;
 }
 
 //***Vehicle Information

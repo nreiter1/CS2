@@ -67,18 +67,42 @@ int main()
             case 7: //Enter Vehicle 1 Data
                 cout << "Type of Vehicle?(R: Regular Size Vehicle, S: Semi): ";
                 cin >> choice;
-                if (choice = 'S')
-                    cin >> semi1;
-                else
-                    cin >> vehicle1;
+                    
+                try
+                {
+                    if (choice == 'S')
+                        cin >> semi1;
+                    else
+                        cin >> vehicle1;
+
+                    cout << "Data Input Successful! Remember to save your data when complete!";
+                }
+                catch (string a)
+                {
+                    cout << a;
+                    system("pause");
+                }
+
                 break;
             case 8: // Enter Vehicle 2 Data
                 cout << "Type of Vehicle?(R: Regular Size Vehicle, S: Semi): ";
                 cin >> choice;
-                if (choice = 'S')
-                    cin >> semi2;
-                else
-                    cin >> vehicle2;
+
+                try
+                {
+                    if (choice == 'S')
+                        cin >> semi2;
+                    else
+                        cin >> vehicle2;
+
+                    cout << "Data Input Successful! Remember to save your data when complete!";
+                }
+                catch (string b)
+                {
+                    cout << b;
+                    system("pause");
+                }
+                
                 break;
             case 9:
                 cout << "Which type of vehicle do you want to view?(R: Regular Size Vehicle, S: Semi): ";

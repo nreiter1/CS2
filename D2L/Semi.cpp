@@ -153,7 +153,7 @@ istream& operator >> (istream& strm, Semi& semi)
 	strm >> semi._model;
 	cout << "Engine Liter(Ex: 3.3 or 5.3)?: ";
 	strm >> semi._engine;
-	cout << "Engine Cylinders?(Ex: 3 or 6): ";
+	cout << "Engine Cylinder(Ex: 4 or 6)?: ";
 	strm >> semi._cylinder;
 	cout << "Transmission Speed?(Ex: 3 or 4): ";
 	strm >> semi._transmission;
@@ -168,7 +168,46 @@ istream& operator >> (istream& strm, Semi& semi)
 	strm >> semi._semiType;
 	cout << "Towing Capacity?: ";
 	strm >> semi._towingCapacity;
-	return strm;
+
+	cout << "\n";
+	if (semi._year <= 0)
+		cout << "\nYear CANNOT be negative!\n";
+	if (semi._engine <= 0)
+		cout << "Engine size CANNOT be negative!\n";
+	if (semi._cylinder <= 0)
+		cout << "Engine cylinders CANNOT be negative!\n";
+	if (semi._transmission <= 0)
+		cout << "Transmission speed CANNOT be negative!\n";
+	if (semi._towingCapacity <= 0)
+		cout << "Towing capacity CANNOT be negative!\n";
+
+	if (semi._year <= 0)
+	{
+		string excepYear = "\nData Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepYear;
+	}
+	if (semi._engine <= 0)
+	{
+		string excepEngine = "\nData Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepEngine;
+	}
+	if (semi._cylinder <= 0)
+	{
+		string excepCylinder = "\nData Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepCylinder;
+	}
+	if (semi._transmission <= 0)
+	{
+		string excepTransmission = "\nData Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepTransmission;
+	}
+	if (semi._towingCapacity <= 0)
+	{
+		string excepTowingCapacity = "\nSemi Data Input Error! Please check above errors! (Code 1)\n\n";
+		throw excepTowingCapacity;
+	}
+	else
+		return strm;
 }
 
 //***Search
